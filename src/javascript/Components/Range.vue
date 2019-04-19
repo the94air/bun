@@ -1,8 +1,8 @@
 <template>
-	<div>
+	<div class="range">
 		<label :for="ident">{{ label }}</label>
 		<input type="range" :id="ident" :min="min" :max="max" :step="step" :value="value" @input="$emit('input', $event.target.value)" />
-		<div class="value">{{ value }}</div>
+		<div class="value">{{ value }}{{ tag }}</div>
 	</div>
 </template>
 
@@ -12,6 +12,7 @@
 			ident: String,
 			label: String,
 			value: String,
+			tag: String,
 			min: Number,
 			max: Number,
 			step: Number,

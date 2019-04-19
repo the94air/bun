@@ -192,7 +192,7 @@
   @include switch-branding
     (
     rgb(170, 170, 170),  // Off state color
-    darken(#cbf2cf, 13%),  // On state color
+    #0074d9,  // On state color
     rgba(white, 0),  // Off state text color
     cubic-bezier(0.860, 0.000, 0.070, 1.000)  // Transition timing function
     );

@@ -1,2 +1,9 @@
+@import './components/reset';
 @import './components/generator';
+@import './components/range';
 @import './components/switch';
+@import './components/picker';
+@import '~prismjs/themes/prism-tomorrow.css';
+@import '~prismjs/plugins/line-numbers/prism-line-numbers.css';
+@import './components/header';
+@import './components/footer';

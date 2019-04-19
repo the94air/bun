@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="picker-tool">
 		<label>{{ label }}</label>
 		<ColorPreview :value="value" @click.native="showPicker = !showPicker" />
 		<Chrome v-if="showPicker" :value="value" @input="getColor" />

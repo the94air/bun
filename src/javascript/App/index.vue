@@ -1,16 +1,17 @@
 <template>
 	<div>
-		<!-- navbar -->
-		<!-- header -->
+		<Header />
 		<Generator />
-		<!-- footer -->
+		<Footer />
 	</div>
 </template>
 
 <script>
+	import Header from '../Components/Header';
 	import Generator from '../Components/Generator';
+	import Footer from '../Components/Footer';
 
 	export default {
-		components: { Generator },
+		components: { Header, Generator, Footer },
 	}
 </script>

@@ -25,9 +25,12 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "prismjs": "^1.16.0",
     "v-clipboard": "^2.2.2",
     "vue": "^2.6.10",
     "vue-color": "^2.7.0",
-    "vue-pin": "^1.0.6"
+    "vue-pin": "^1.0.6",
+    "vue-prism": "^1.0.5",
+    "vue-prism-component": "^1.1.1"
   }
 }
