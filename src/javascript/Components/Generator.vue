@@ -207,7 +207,7 @@
 						/>
 						<Picker
 							:label="'Checked input border color'"
-							v-model="css.input.disabled.border_color"
+							v-model="css.input.checked.border_color"
 						/>
 						<Picker
 							:label="'Disabled input background'"
@@ -226,6 +226,7 @@
 							:step=".1"
 							:tag="''"
 						/>
+						<h2>Hover & Focus Settings</h2>
 						<Picker
 							:label="'Input hover & focus background'"
 							v-model="css.input.hover_and_focus.background"
@@ -237,6 +238,19 @@
 						<Picker
 							:label="'Checked input hover and focus border color'"
 							v-model="css.input.checked.hover_and_focus.border_color"
+						/>
+						<Picker
+							:label="'Input focus shadow color'"
+							v-model="css.input.focus.outline_color"
+						/>
+						<Range
+							:ident="'input_focus_shadow_thickness'"
+							:label="'Input focus shadow width'"
+							v-model="css.input.focus.outline_thickness"
+							:min="0"
+							:max="10"
+							:step="1"
+							:tag="'px'"
 						/>
 						<h2>Ripple Settings</h2>
 						<Switchh

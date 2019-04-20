@@ -28,6 +28,9 @@
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 			transition: background ease 150ms, color ease 150ms;
 			padding: 0.6rem 0.6rem;
+			&:focus {
+				@apply shadow-outline;
+			}
 		}
 	}
 	.tips {
@@ -86,6 +89,9 @@
 	&:hover {
 		color: white;
 		text-decoration: none;
+	}
+	&:focus {
+		@apply shadow-outline;
 	}
 	+ .copy-button {
 		@apply ml-1;
