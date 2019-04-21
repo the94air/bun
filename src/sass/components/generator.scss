@@ -29,7 +29,7 @@
 			transition: background ease 150ms, color ease 150ms;
 			padding: 0.6rem 0.6rem;
 			&:focus {
-				@apply shadow-outline;
+				@apply shadow-outline outline-none;
 			}
 		}
 	}
@@ -91,7 +91,7 @@
 		text-decoration: none;
 	}
 	&:focus {
-		@apply shadow-outline;
+		@apply shadow-outline outline-none;
 	}
 	+ .copy-button {
 		@apply ml-1;
