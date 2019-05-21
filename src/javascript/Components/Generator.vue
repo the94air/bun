@@ -537,7 +537,7 @@
 									<div class="f-input"></div>
 								</label>
 								<label class="f-contain">
-									<span>Forth checkbox</span>
+									<span>Fourth checkbox</span>
 									<input type="checkbox" checked="" disabled>
 									<div class="f-input"></div>
 								</label>
@@ -559,7 +559,7 @@
 									<div class="f-input"></div>
 								</label>
 								<label class="f-contain">
-									<span>Forth radio</span>
+									<span>Fourth radio</span>
 									<input type="radio" name="radio2" checked="" disabled>
 									<div class="f-input"></div>
 								</label>
@@ -899,7 +899,7 @@
 	<div class="b-input"></div>
 </label>
 <label class="b-contain">
-	<span>Forth checkbox</span>
+	<span>Fourth checkbox</span>
 	<input type="checkbox" checked="" disabled>
 	<div class="b-input"></div>
 </label>
@@ -920,7 +920,7 @@
 	<div class="b-input"></div>
 </label>
 <label class="b-contain">
-	<span>Forth radio</span>
+	<span>Fourth radio</span>
 	<input type="radio" name="radio2" checked="" disabled>
 	<div class="b-input"></div>
 </label>`
