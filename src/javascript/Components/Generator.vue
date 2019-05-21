@@ -1,6 +1,6 @@
 <template>
 	<div class="generator">
-		<div class="container">
+		<div class="container mb-16">
 			<div class="flex flex-wrap -mx-3">
 				<div class="w-full md:w-1/2 px-3 mb-20">
 					<div class="tips">
@@ -326,7 +326,7 @@
 					</div>
 				</div>
 				<div class="w-full md:w-1/2 px-3 mb-20">
-					<div v-pin="{ containerSelector: '.container', padding: { top: 50, bottom: 0 }}">
+					<div class="static-sm" v-pin="{ containerSelector: '.container', padding: { top: 50, bottom: 0 }}">
 						<div class="generator-preview" :style="{ background: previewBackground ? '#20262E' : 'white', color: previewBackground ? 'black' : 'white' }">
 							<Style>
 								.f-contain *, .f-contain *::before, .f-contain *::after {

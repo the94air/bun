@@ -1,5 +1,10 @@
 .generator {
 	margin-top: 8rem;
+	.static-sm {
+		@media (max-width: 768px) {
+			position: static !important;
+		}
+	}
 	.generator-preview {
 		@apply mb-4 shadow-lg rounded-lg;
 		background: #20262E;
