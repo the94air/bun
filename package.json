@@ -25,6 +25,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "prismjs": "^1.16.0",
     "v-clipboard": "^2.2.2",
     "vue": "^2.6.10",

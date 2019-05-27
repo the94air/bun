@@ -3,7 +3,14 @@
 		<label>{{ label }}</label>
 		<ColorPreview :value="value" @click.native="showPicker = !showPicker" />
 		<Chrome v-if="showPicker" :value="value" @input="getColor" />
-		<div class="value">{{ value }}</div>
+		<div class="flex">
+			<div class="w-1/2">
+				<div class="value">{{ value }}</div>
+			</div>
+			<div class="w-1/2 text-right">
+				<button class="reset-button" @click="$emit('reset')">Reset</button>
+			</div>
+		</div>
 	</div>
 </template>
 

@@ -81,6 +81,14 @@
 		@apply shadow-lg rounded-lg;
         max-height: 400px;
 	}
+	.reset-button {
+		@apply inline-block bg-black text-white rounded text-xs;
+		border: 1px solid config('colors.black');
+		padding: 0.1rem 0.4rem;
+		&:focus {
+			@apply shadow-outline outline-none;
+		}
+	}
 }
 
 .copy-button {

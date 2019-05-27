@@ -1,6 +1,6 @@
 <template>
 	<div class="generator">
-		<div class="container mb-16">
+		<div class="container mb-0 md:mb-16">
 			<div class="flex flex-wrap -mx-3">
 				<div class="w-full md:w-1/2 px-3 mb-20">
 					<div class="tips">
@@ -14,12 +14,23 @@
 						<h2>Text Settings</h2>
 						<Range
 							:ident="'text_line_height'"
-							:label="'Text Line height'"
+							:label="'Text line height'"
 							v-model="css.span.line_height"
 							:min="0"
 							:max="4.0"
 							:step="0.01"
 							:tag="''"
+							@reset="resetField('css.span.line_height')"
+						/>
+						<Range
+							:ident="'text_font_size'"
+							:label="'Text font size'"
+							v-model="css.span.font_size"
+							:min="0"
+							:max="2.0"
+							:step="0.01"
+							:tag="'rem'"
+							@reset="resetField('css.span.font_size')"
 						/>
 						<h2>Inputs Settings</h2>
 						<Range
@@ -30,6 +41,7 @@
 							:max="4.0"
 							:step="0.01"
 							:tag="'rem'"
+							@reset="resetField('css.contain.padding_left')"
 						/>
 						<Range
 							:ident="'input_margin_bottom'"
@@ -39,6 +51,7 @@
 							:max="3.0"
 							:step="0.01"
 							:tag="'rem'"
+							@reset="resetField('css.contain.margin_bottom')"
 						/>
 						<Range
 							:ident="'input_height'"
@@ -48,6 +61,7 @@
 							:max="3.0"
 							:step="0.01"
 							:tag="'rem'"
+							@reset="resetField('css.input.height')"
 						/>
 						<Range
 							:ident="'input_width'"
@@ -57,15 +71,18 @@
 							:max="3.0"
 							:step="0.01"
 							:tag="'rem'"
+							@reset="resetField('css.input.width')"
 						/>
 						<Picker
 							:label="'Input background'"
 							v-model="css.input.background"
+							@reset="resetField('css.input.background')"
 						/>
 						<Switchh
 							:ident="'input_with_border'"
 							:label="'Input with border?'"
 							v-model="css.input.with_border"
+							@reset="resetField('css.input.with_border')"
 						/>
 						<template v-if="css.input.with_border">
 							<Range
@@ -76,10 +93,12 @@
 								:max="10"
 								:step="1"
 								:tag="'px'"
+								@reset="resetField('css.input.border_width')"
 							/>
 							<Picker
 								:label="'Input border color'"
 								v-model="css.input.border_color"
+								@reset="resetField('css.input.border_color')"
 							/>
 						</template>
 						<h2>Checkbox Settings</h2>
@@ -91,6 +110,7 @@
 							:max="3.0"
 							:step=".001"
 							:tag="'rem'"
+							@reset="resetField('css.input.checkbox.border_radius')"
 						/>
 						<Range
 							:ident="'checkbox_checkmark_left_position'"
@@ -100,6 +120,7 @@
 							:max="3.0"
 							:step=".01"
 							:tag="'rem'"
+							@reset="resetField('css.input.checkbox.checkmark.left')"
 						/>
 						<Range
 							:ident="'checkbox_checkmark_top_position'"
@@ -109,6 +130,7 @@
 							:max="3.0"
 							:step=".01"
 							:tag="'rem'"
+							@reset="resetField('css.input.checkbox.checkmark.top')"
 						/>
 						<Range
 							:ident="'checkbox_checkmark_width'"
@@ -118,6 +140,7 @@
 							:max="3.0"
 							:step=".01"
 							:tag="'rem'"
+							@reset="resetField('css.input.checkbox.checkmark.width')"
 						/>
 						<Range
 							:ident="'checkbox_checkmark_height'"
@@ -127,6 +150,7 @@
 							:max="3.0"
 							:step=".01"
 							:tag="'rem'"
+							@reset="resetField('css.input.checkbox.checkmark.height')"
 						/>
 						<Range
 							:ident="'checkbox_checkmark_thickness'"
@@ -136,6 +160,7 @@
 							:max="10"
 							:step="1"
 							:tag="'px'"
+							@reset="resetField('css.input.checkbox.checkmark.thickness')"
 						/>
 						<h2>Radio Settings</h2>
 						<Range
@@ -146,6 +171,7 @@
 							:max="3.0"
 							:step=".001"
 							:tag="'rem'"
+							@reset="resetField('css.input.radio.border_radius')"
 						/>
 						<Range
 							:ident="'radio_dot_left_position'"
@@ -155,6 +181,7 @@
 							:max="3.0"
 							:step=".01"
 							:tag="'rem'"
+							@reset="resetField('css.input.radio.dot.left')"
 						/>
 						<Range
 							:ident="'radio_dot_top_position'"
@@ -164,6 +191,7 @@
 							:max="3.0"
 							:step=".01"
 							:tag="'rem'"
+							@reset="resetField('css.input.radio.dot.top')"
 						/>
 						<Range
 							:ident="'radio_dot_width'"
@@ -173,6 +201,7 @@
 							:max="3.0"
 							:step=".05"
 							:tag="'rem'"
+							@reset="resetField('css.input.radio.dot.width')"
 						/>
 						<Range
 							:ident="'radio_dot_height'"
@@ -182,6 +211,7 @@
 							:max="3.0"
 							:step=".05"
 							:tag="'rem'"
+							@reset="resetField('css.input.radio.dot.height')"
 						/>
 						<Range
 							:ident="'radio_dot_border_radius'"
@@ -191,31 +221,38 @@
 							:max="3.0"
 							:step=".001"
 							:tag="'rem'"
+							@reset="resetField('css.input.radio.dot.border_radius')"
 						/>
 						<h2>Checkbox & Radio Settings</h2>
 						<Picker
 							:label="'Checkbox checkmark & radio dot color'"
 							v-model="css.input.checkmark_and_dot.color"
+							@reset="resetField('css.input.checkmark_and_dot.color')"
 						/>
 						<Picker
 							:label="'Checkbox checkmark & radio dot disabled color'"
 							v-model="css.input.checkmark_and_dot.disabled.color"
+							@reset="resetField('css.input.checkmark_and_dot.disabled.color')"
 						/>
 						<Picker
 							:label="'Checked input background'"
 							v-model="css.input.checked.background"
+							@reset="resetField('css.input.checked.background')"
 						/>
 						<Picker
 							:label="'Checked input border color'"
 							v-model="css.input.checked.border_color"
+							@reset="resetField('css.input.checked.border_color')"
 						/>
 						<Picker
 							:label="'Disabled input background'"
 							v-model="css.input.disabled.background"
+							@reset="resetField('css.input.disabled.background')"
 						/>
 						<Picker
 							:label="'Disabled input border color'"
 							v-model="css.input.disabled.border_color"
+							@reset="resetField('css.input.disabled.border_color')"
 						/>
 						<Range
 							:ident="'input_disabled_opacity'"
@@ -225,23 +262,28 @@
 							:max="1"
 							:step=".1"
 							:tag="''"
+							@reset="resetField('css.input.disabled.opacity')"
 						/>
 						<h2>Hover & Focus Settings</h2>
 						<Picker
 							:label="'Input hover & focus background'"
 							v-model="css.input.hover_and_focus.background"
+							@reset="resetField('css.input.hover_and_focus.background')"
 						/>
 						<Picker
 							:label="'Checked input hover and focus background'"
 							v-model="css.input.checked.hover_and_focus.background"
+							@reset="resetField('css.input.checked.hover_and_focus.background')"
 						/>
 						<Picker
 							:label="'Checked input hover and focus border color'"
 							v-model="css.input.checked.hover_and_focus.border_color"
+							@reset="resetField('css.input.checked.hover_and_focus.border_color')"
 						/>
 						<Picker
 							:label="'Input focus shadow color'"
 							v-model="css.input.focus.outline_color"
+							@reset="resetField('css.input.focus.outline_color')"
 						/>
 						<Range
 							:ident="'input_focus_shadow_thickness'"
@@ -251,18 +293,21 @@
 							:max="10"
 							:step="1"
 							:tag="'px'"
+							@reset="resetField('css.input.focus.outline_thickness')"
 						/>
 						<h2>Ripple Settings</h2>
 						<Switchh
 							:ident="'input_with_ripple'"
 							:label="'Input with ripple?'"
 							v-model="css.input.with_ripple"
+							@reset="resetField('css.input.with_ripple')"
 						/>
 						<template v-if="css.input.with_ripple">
 							<Switchh
 								:ident="'show_input_ripple'"
 								:label="'Show input ripple?'"
 								v-model="css.input.ripple.scale"
+								@reset="resetField('css.input.ripple.scale')"
 							/>
 							<Range
 								:ident="'input_ripple_width'"
@@ -272,6 +317,7 @@
 								:max="9"
 								:step=".001"
 								:tag="'rem'"
+								@reset="resetField('css.input.ripple.width')"
 							/>
 							<Range
 								:ident="'input_ripple_height'"
@@ -281,6 +327,7 @@
 								:max="9"
 								:step=".001"
 								:tag="'rem'"
+								@reset="resetField('css.input.ripple.height')"
 							/>
 							<Range
 								:ident="'input_ripple_margin_left'"
@@ -290,6 +337,7 @@
 								:max="3"
 								:step=".001"
 								:tag="'rem'"
+								@reset="resetField('css.input.ripple.margin_left')"
 							/>
 							<Range
 								:ident="'input_ripple_margin_top'"
@@ -299,10 +347,12 @@
 								:max="3"
 								:step=".001"
 								:tag="'rem'"
+								@reset="resetField('css.input.ripple.margin_top')"
 							/>
 							<Picker
 								:label="'Input ripple background'"
 								v-model="css.input.ripple.background"
+								@reset="resetField('css.input.ripple.background')"
 							/>
 							<Range
 								:ident="'input_ripple_border_radius'"
@@ -312,6 +362,7 @@
 								:max="3.0"
 								:step=".001"
 								:tag="'rem'"
+								@reset="resetField('css.input.ripple.border_radius')"
 							/>
 							<Range
 								:ident="'input_ripple_opacity'"
@@ -321,6 +372,7 @@
 								:max="1"
 								:step=".1"
 								:tag="''"
+								@reset="resetField('css.input.ripple.opacity')"
 							/>
 						</template>
 					</div>
@@ -341,8 +393,8 @@
 
 								.f-contain span {
 									line-height: {{ css.span.line_height }};
+									font-size: {{ css.span.font_size }}rem;
 									font-family: inherit;
-									font-size: inherit;
 								}
 
 								.f-contain {
@@ -570,6 +622,9 @@
 							<button class="preview-color" :style="{ background: previewBackground ? 'white' : 'black', color: previewBackground ? 'black' : 'white' }" @click="previewBackground = !previewBackground">
 								<div>Light / Dark</div>
 							</button>
+							<button class="preview-color ml-1" @click="resetState">
+								<div>Reset</div>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -603,92 +658,12 @@
 	import Picker from './Picker';
 	import Switchh from './Switchh';
 	import Prism from 'prismjs';
+	import _ from 'lodash';
+	import defaultState from '../state.js';
 
 	export default {
 		components: { Style, Range, Picker, Switchh },
-		data() {
-			return {
-				previewBackground: true,
-				clipboard: {
-					html: false,
-					css: false,
-				},
-				css: {
-					span: {
-						line_height: '1.54',
-					},
-					contain: {
-						padding_left: '1.8',
-						margin_bottom: '.5',
-					},
-					input: {
-						height: '1.25',
-						width: '1.25',
-						background: 'rgba(241, 245, 248, 1)',
-						with_border: true,
-						with_ripple: true,
-						border_width: '1',
-						border_color: 'rgba(184, 194, 204, 1)',
-						checkbox: {
-							border_radius: '0.125',
-							checkmark: {
-								left: '.45',
-								top: '.18',
-								width: '.25',
-								height: '.6',
-								thickness: '2',
-							}
-						},
-						radio: {
-							border_radius: '2.0',
-							dot: {
-								left: '.25',
-								top: '.25',
-								width: '.75',
-								height: '.75',
-								border_radius: '2.0',
-							}
-						},
-						checkmark_and_dot: {
-							color: 'rgba(255, 255, 255, 1)',
-							disabled: {
-								color: 'rgba(135, 149, 161, 1)'
-							}
-						},
-						hover_and_focus: {
-							background: 'rgb(231, 238, 243)'
-						},
-						focus: {
-							outline_thickness: '2',
-							outline_color: 'rgba(52,144,220,0.5)',
-						},
-						checked: {
-							background: 'rgba(52, 144, 220, 1)',
-							border_color: 'rgba(52, 144, 220, 1)',
-							hover_and_focus: {
-								background: 'rgba(74, 156, 224, 1)',
-								border_color: 'rgba(74, 156, 224, 1)',
-							}
-						},
-						disabled: {
-							background: 'rgba(241, 245, 248, 1)',
-							border_color: 'rgba(184, 194, 204, 1)',
-							opacity: '0.6',
-						},
-						ripple: {
-							width: '3',
-							height: '3',
-							margin_left: '-0.85',
-							margin_top: '-0.85',
-							background: 'rgba(52, 144, 220, 1)',
-							border_radius: '2',
-							opacity: '.6',
-							scale: false,
-						},
-					},
-				}
-			}
-		},
+		data: defaultState,
 		computed: {
 			css_code() {
 				return `.b-contain *, .b-contain *::before, .b-contain *::after {
@@ -703,8 +678,8 @@
 
 .b-contain span {
 	line-height: ${ this.css.span.line_height };
+	font-size: ${ this.css.span.font_size }rem;
 	font-family: inherit;
-	font-size: inherit;
 }
 
 .b-contain {
@@ -890,7 +865,7 @@
 </label>
 <label class="b-contain">
 	<span>Second checkbox</span>
-	<input type="checkbox" checked="">
+	<input type="checkbox" checked>
 	<div class="b-input"></div>
 </label>
 <label class="b-contain">
@@ -900,7 +875,7 @@
 </label>
 <label class="b-contain">
 	<span>Fourth checkbox</span>
-	<input type="checkbox" checked="" disabled>
+	<input type="checkbox" checked disabled>
 	<div class="b-input"></div>
 </label>
 
@@ -911,7 +886,7 @@
 </label>
 <label class="b-contain">
 	<span>Second radio</span>
-	<input type="radio" name="radio1" checked="">
+	<input type="radio" name="radio1" checked>
 	<div class="b-input"></div>
 </label>
 <label class="b-contain">
@@ -921,17 +896,18 @@
 </label>
 <label class="b-contain">
 	<span>Fourth radio</span>
-	<input type="radio" name="radio2" checked="" disabled>
+	<input type="radio" name="radio2" checked disabled>
 	<div class="b-input"></div>
 </label>`
 			}
 		},
 		watch: {
 			css:  {
-				handler(value) {
+				handler: _.debounce(function(value) {
 					let block = document.getElementById('css-code');
 					this.$nextTick(()=> Prism.highlightElement(block));
-				},
+					// Prism.highlightElement(block);
+				}, 100),
 				deep: true
 			}
 		},
@@ -942,6 +918,13 @@
 				setTimeout(() => {
 					self.clipboard[type] = false;
 				}, 2000);
+			},
+			resetState() {
+				Object.assign(this.$data, defaultState());
+			},
+			resetField(property) {
+				let value = _.get(defaultState(), property);
+				_.set(this.$data, property, value);
 			}
 		}
 	}
