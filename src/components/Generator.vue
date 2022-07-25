@@ -1,15 +1,15 @@
 <script setup>
-import { ref } from "vue";
 import { useStore } from "../stores/settings";
 
 const settings = useStore();
 </script>
 
 <template>
-  <pre
-    class="mb-10"
-    v-highlightjs
-  ><code class="rounded-md py-6 px-6 html">&lt;label class="{{ settings.prefix }}-contain"&gt;
+  <div class="mb-10">
+    <h3 class="font-bold text-xl lg:text-2xl mb-4">HTML body</h3>
+    <pre
+      v-highlightjs
+    ><code class="rounded-md py-6 px-6 html">&lt;label class="{{ settings.prefix }}-contain"&gt;
   &lt;span&gt;This is a checkbox&lt;/span&gt;
   &lt;input type="checkbox" /&gt;
   &lt;div class="{{ settings.prefix }}-input"&gt;&lt;/div&gt;
@@ -20,11 +20,15 @@ const settings = useStore();
   &lt;input name="radio" type="radio" /&gt;
   &lt;div class="{{ settings.prefix }}-input"&gt;&lt;/div&gt;
 &lt;/label&gt;</code></pre>
+  </div>
 
-  <pre
-    class="max-h-96 overflow-y-auto rounded-md"
-    v-highlightjs
-  ><code class="py-6 px-6 css">.{{ settings.prefix }}-contain *,
+  <div>
+    <h3 class="font-bold text-xl lg:text-2xl mb-4">CSS style</h3>
+
+    <pre
+      class="max-h-96 overflow-y-auto rounded-md"
+      v-highlightjs
+    ><code class="py-6 px-6 css">.{{ settings.prefix }}-contain *,
 .{{ settings.prefix }}-contain *::before,
 .{{ settings.prefix }}-contain *::after {
   box-sizing: content-box !important;
@@ -156,4 +160,5 @@ const settings = useStore();
   background: {{ settings.radio.checked.interaction.backgroundColor }};
   border-color: {{ settings.radio.checked.interaction.borderColor }};
 }</code></pre>
+  </div>
 </template>
