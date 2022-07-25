@@ -26,7 +26,7 @@ const changeTheme = () => {
           <span>
             {{
               settings.content.text === ""
-                ? "First checked checkbox"
+                ? "First unchecked checkbox"
                 : settings.content.text
             }}
           </span>
@@ -37,7 +37,7 @@ const changeTheme = () => {
           <span>
             {{
               settings.content.text === ""
-                ? "Second unchecked checkbox"
+                ? "Second checked checkbox"
                 : settings.content.text
             }}
           </span>
@@ -72,7 +72,7 @@ const changeTheme = () => {
           <span>
             {{
               settings.content.text === ""
-                ? "First checked radio"
+                ? "First unchecked radio"
                 : settings.content.text
             }}
           </span>
@@ -83,7 +83,7 @@ const changeTheme = () => {
           <span>
             {{
               settings.content.text === ""
-                ? "Second unchecked radio"
+                ? "Second checked radio"
                 : settings.content.text
             }}
           </span>
