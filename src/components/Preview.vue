@@ -250,7 +250,7 @@ const changeTheme = () => {
 }
 
 .b-contain input[type="radio"]:disabled ~ .b-input::after {
-  border-color: v-bind("settings.bull.disabled.color");
+  background: v-bind("settings.bull.disabled.color");
 }
 
 .b-contain:hover input[type="checkbox"]:not([disabled]):checked ~ .b-input,

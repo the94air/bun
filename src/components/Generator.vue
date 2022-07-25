@@ -146,7 +146,7 @@ const settings = useStore();
 }
 
 .{{ settings.prefix }}-contain input[type="radio"]:disabled ~ .{{ settings.prefix }}-input::after {
-  border-color: {{ settings.bull.disabled.color }};
+  background: {{ settings.bull.disabled.color }};
 }
 
 .{{ settings.prefix }}-contain:hover input[type="checkbox"]:not([disabled]):checked ~ .{{ settings.prefix }}-input,
