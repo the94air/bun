@@ -49,4 +49,4 @@ Bun wouldn't exist without these:
 3. https://ghinda.net/article/css-ripple-material-design/
 
 ## License
-[MIT](https://github.com/the94air/bun/blob/master/LICENSE) Copyright © 2019 - present, [Abdalla Arbab](https://abdalla.js.org).
+[MIT](https://github.com/the94air/bun/blob/master/LICENSE) Copyright © 2019 - present, [Abdalla Arbab](https://abdalla.sd).
