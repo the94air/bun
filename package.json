@@ -10,7 +10,8 @@
   "dependencies": {
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
-    "vue3-colorpicker": "^2.0.4"
+    "vue3-colorpicker": "^2.0.4",
+    "vue3-highlightjs": "^1.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.1",

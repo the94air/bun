@@ -46,7 +46,7 @@ const settings = useStore();
         <RangeInput
           id="content-font-size"
           :min="0"
-          :max="4"
+          :max="7"
           :step="0.01"
           tag="rem"
           v-model.number="settings.content.fontSize"
@@ -63,9 +63,9 @@ const settings = useStore();
         <RangeInput
           id="input-padding-left"
           :min="0"
-          :max="4"
+          :max="20"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.input.paddingLeft"
         >
           <label for="input-padding-left">Padding left</label>
@@ -74,9 +74,9 @@ const settings = useStore();
         <RangeInput
           id="input-margin-bottom"
           :min="0"
-          :max="4"
+          :max="20"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.input.marginBottom"
         >
           <label for="input-margin-bottom">Margin bottom</label>
@@ -85,9 +85,9 @@ const settings = useStore();
         <RangeInput
           id="input-height"
           :min="0"
-          :max="4"
+          :max="6"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.input.height"
         >
           <label for="input-height">Height</label>
@@ -96,9 +96,9 @@ const settings = useStore();
         <RangeInput
           id="input-width"
           :min="0"
-          :max="4"
+          :max="6"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.input.width"
         >
           <label for="input-width">Width</label>
@@ -107,9 +107,9 @@ const settings = useStore();
         <RangeInput
           id="input-border-width"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="10"
+          :step="1"
+          tag="px"
           v-model.number="settings.input.borderWidth"
         >
           <label for="input-border-width">Border width</label>
@@ -138,15 +138,35 @@ const settings = useStore();
         <RangeInput
           id="checkbox-border-radius"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.checkbox.borderRadius"
         >
           <label for="checkbox-border-radius">Border radius</label>
         </RangeInput>
 
-        <section>
+        <section class="border border-slate-300 p-5 rounded-md mb-5">
+          <h4 class="font-bold text-lg mb-2">Interaction</h4>
+
+          <ColorInput
+            v-model="settings.checkbox.interaction.backgroundColor"
+            id="checkbox-interaction-background-color"
+          >
+            <label for="checkbox-interaction-background-color"
+              >Background color</label
+            >
+          </ColorInput>
+
+          <ColorInput
+            v-model="settings.checkbox.interaction.borderColor"
+            id="checkbox-interaction-border-color"
+          >
+            <label for="checkbox-interaction-border-color">Border color</label>
+          </ColorInput>
+        </section>
+
+        <section class="border border-slate-300 p-5 rounded-md">
           <h4 class="font-bold text-lg mb-2">Checked</h4>
 
           <ColorInput
@@ -165,7 +185,7 @@ const settings = useStore();
             <label for="checkbox-checked-border-color">Border color</label>
           </ColorInput>
 
-          <section>
+          <section class="border border-slate-300 p-5 rounded-md">
             <h5 class="font-bold text-lg mb-2">Interaction</h5>
 
             <ColorInput
@@ -186,28 +206,6 @@ const settings = useStore();
               >
             </ColorInput>
           </section>
-
-          <section>
-            <h4 class="font-bold text-lg mb-2">Interaction</h4>
-
-            <ColorInput
-              v-model="settings.checkbox.interaction.backgroundColor"
-              id="checkbox-interaction-background-color"
-            >
-              <label for="checkbox-interaction-background-color"
-                >Background color</label
-              >
-            </ColorInput>
-
-            <ColorInput
-              v-model="settings.checkbox.interaction.borderColor"
-              id="checkbox-interaction-border-color"
-            >
-              <label for="checkbox-interaction-border-color"
-                >Border color</label
-              >
-            </ColorInput>
-          </section>
         </section>
       </section>
 
@@ -219,9 +217,9 @@ const settings = useStore();
         <RangeInput
           id="checkmark-left"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="20"
+          :step="1"
+          tag="px"
           v-model.number="settings.checkmark.left"
         >
           <label for="checkmark-left">Left</label>
@@ -230,9 +228,9 @@ const settings = useStore();
         <RangeInput
           id="checkmark-top"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="20"
+          :step="1"
+          tag="px"
           v-model.number="settings.checkmark.top"
         >
           <label for="checkmark-top">Top</label>
@@ -241,9 +239,9 @@ const settings = useStore();
         <RangeInput
           id="checkmark-width"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.checkmark.width"
         >
           <label for="checkmark-width">Width</label>
@@ -252,9 +250,9 @@ const settings = useStore();
         <RangeInput
           id="checkmark-height"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.checkmark.height"
         >
           <label for="checkmark-height">Height</label>
@@ -267,15 +265,15 @@ const settings = useStore();
         <RangeInput
           id="checkmark-thickness"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="10"
+          :step="1"
+          tag="px"
           v-model.number="settings.checkmark.thickness"
         >
           <label for="checkmark-thickness">Thickness</label>
         </RangeInput>
 
-        <section>
+        <section class="border border-slate-300 p-5 rounded-md">
           <h4 class="font-bold text-lg mb-2">Disabled</h4>
 
           <ColorInput
@@ -295,15 +293,37 @@ const settings = useStore();
         <RangeInput
           id="radio-border-radius"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.radio.borderRadius"
         >
           <label for="radio-border-radius">Border radius</label>
         </RangeInput>
 
-        <section>
+        <section class="border border-slate-300 p-5 rounded-md mb-5">
+          <h4 class="font-bold text-lg mb-2">Interaction</h4>
+
+          <ColorInput
+            v-model="settings.radio.interaction.backgroundColor"
+            id="checkmark-radio-interaction-background-color"
+          >
+            <label for="checkmark-radio-interaction-background-color"
+              >Background color</label
+            >
+          </ColorInput>
+
+          <ColorInput
+            v-model="settings.radio.interaction.borderColor"
+            id="checkmark-radio-interaction-border-color"
+          >
+            <label for="checkmark-radio-interaction-border-color"
+              >Border color</label
+            >
+          </ColorInput>
+        </section>
+
+        <section class="border border-slate-300 p-5 rounded-md">
           <h4 class="font-bold text-lg mb-2">Checked</h4>
 
           <ColorInput
@@ -324,7 +344,7 @@ const settings = useStore();
             >
           </ColorInput>
 
-          <section>
+          <section class="border border-slate-300 p-5 rounded-md">
             <h5 class="font-bold text-lg mb-2">Interaction</h5>
 
             <ColorInput
@@ -346,28 +366,6 @@ const settings = useStore();
             </ColorInput>
           </section>
         </section>
-
-        <section>
-          <h4 class="font-bold text-lg mb-2">Interaction</h4>
-
-          <ColorInput
-            v-model="settings.radio.interaction.backgroundColor"
-            id="checkmark-radio-interaction-background-color"
-          >
-            <label for="checkmark-radio-interaction-background-color"
-              >Background color</label
-            >
-          </ColorInput>
-
-          <ColorInput
-            v-model="settings.radio.interaction.borderColor"
-            id="checkmark-radio-interaction-border-color"
-          >
-            <label for="checkmark-radio-interaction-border-color"
-              >Border color</label
-            >
-          </ColorInput>
-        </section>
       </section>
 
       <section
@@ -378,9 +376,9 @@ const settings = useStore();
         <RangeInput
           id="bull-left"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="20"
+          :step="1"
+          tag="px"
           v-model.number="settings.bull.left"
         >
           <label for="bull-left">Left</label>
@@ -389,9 +387,9 @@ const settings = useStore();
         <RangeInput
           id="bull-top"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="20"
+          :step="1"
+          tag="px"
           v-model.number="settings.bull.top"
         >
           <label for="bull-top">Top</label>
@@ -400,9 +398,9 @@ const settings = useStore();
         <RangeInput
           id="bull-width"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.bull.width"
         >
           <label for="bull-width">Width</label>
@@ -411,9 +409,9 @@ const settings = useStore();
         <RangeInput
           id="bull-height"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.bull.height"
         >
           <label for="bull-height">Height</label>
@@ -426,15 +424,15 @@ const settings = useStore();
         <RangeInput
           id="bull-border-radius"
           :min="0"
-          :max="4"
+          :max="10"
           :step="0.01"
-          tag=""
+          tag="rem"
           v-model.number="settings.bull.borderRadius"
         >
           <label for="bull-border-radius">Border radius</label>
         </RangeInput>
 
-        <section>
+        <section class="border border-slate-300 p-5 rounded-md">
           <h4 class="font-bold text-lg mb-2">Disabled</h4>
 
           <ColorInput
@@ -454,7 +452,7 @@ const settings = useStore();
         <RangeInput
           id="disabled-opacity"
           :min="0"
-          :max="4"
+          :max="1"
           :step="0.01"
           tag=""
           v-model.number="settings.disabled.opacity"
@@ -475,13 +473,23 @@ const settings = useStore();
         <RangeInput
           id="ring-thickness"
           :min="0"
-          :max="4"
-          :step="0.01"
-          tag=""
+          :max="10"
+          :step="1"
+          tag="px"
           v-model.number="settings.ring.thickness"
         >
           <label for="ring-thickness">Thickness</label>
         </RangeInput>
+      </section>
+
+      <section
+        class="bg-slate-50 py-8 px-6 border border-slate-200 rounded-md mb-10"
+      >
+        <h3 class="font-bold text-xl lg:text-2xl mb-4">Classes</h3>
+
+        <TextInput id="prefix" v-model.trim="settings.prefix">
+          <label for="prefix">Classes prefix</label>
+        </TextInput>
       </section>
     </div>
   </div>

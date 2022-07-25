@@ -30,13 +30,13 @@ const color = computed({
       </div>
       <div class="flex">
         <input
-          class="block appearance-none bg-white leading-tight rounded focus:outline-none border-2 hover:border-slate-300 focus:border-black px-2 py-[0.2rem] text-center w-44"
+          class="block appearance-none bg-white leading-tight rounded focus:outline-none border-2 border-slate-200 hover:border-slate-300 focus:border-black px-2 py-[0.2rem] text-center w-44"
           type="text"
           :value="color"
           @input="$emit('update:modelValue', $event.target.value)"
         />
         <button
-          class="inline-block font-sm text-black bg-slate-300 hover:bg-slate-200 focus:bg-slate-200 rounded cursor-pointer select-none py-[0.2rem] px-3 ml-2"
+          class="inline-block font-sm text-black bg-slate-200 hover:bg-slate-300 focus:bg-slate-300 rounded cursor-pointer select-none py-[0.2rem] px-3 ml-2"
           @click="$emit('update:modelValue', defaultValue)"
         >
           Reset
@@ -52,7 +52,7 @@ const color = computed({
 
 <style>
 .vc-color-wrap {
-  width: 10rem !important;
+  width: 100% !important;
   height: 2rem !important;
   border-radius: 0.24rem;
 }

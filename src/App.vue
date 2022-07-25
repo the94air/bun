@@ -13,15 +13,20 @@ import Generator from "./components/Generator.vue";
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap md:-mx-4">
           <div class="w-full lg:w-1/2 md:px-4">
-            <Settings />
+            <Preview />
           </div>
           <div class="w-full lg:w-1/2 md:px-4">
-            <Preview />
+            <Settings />
+          </div>
+        </div>
+        <div class="flex flex-wrap md:-mx-4">
+          <div class="w-full lg:w-1/2 md:px-4"></div>
+          <div class="w-full lg:w-1/2 md:px-4">
+            <Generator />
           </div>
         </div>
       </div>
     </section>
-    <Generator />
   </main>
   <Footer />
 </template>

@@ -45,18 +45,22 @@ onBeforeUnmount(() => {
         <div class="flex items-center">
           <div>
             <input
-              class="block appearance-none bg-white leading-tight rounded focus:outline-none border-2 hover:border-slate-300 focus:border-black px-2 py-[0.2rem] text-center w-16"
+              class="block appearance-none bg-white leading-tight rounded focus:outline-none border-2 border-slate-200 hover:border-slate-300 focus:border-black px-2 py-[0.2rem] text-center w-16"
+              :class="tag ? 'rounded-r-none border-r-0' : ''"
               type="text"
               :value="modelValue"
               @input="$emit('update:modelValue', $event.target.value)"
             />
           </div>
-          <span v-if="tag" class="ml-2">
+          <span
+            v-if="tag"
+            class="bg-slate-200 font-mono px-2 py-[0.3rem] rounded-r text-slate-600 text-sm"
+          >
             {{ tag }}
           </span>
         </div>
         <button
-          class="inline-block font-sm text-black bg-slate-300 hover:bg-slate-200 focus:bg-slate-200 rounded cursor-pointer select-none py-[0.2rem] px-3 ml-2"
+          class="inline-block font-sm text-black bg-slate-200 hover:bg-slate-300 focus:bg-slate-300 rounded cursor-pointer select-none py-[0.2rem] px-3 ml-2"
           @click="$emit('update:modelValue', defaultValue)"
         >
           Reset

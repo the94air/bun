@@ -18,7 +18,7 @@ const changeTheme = () => {
 <template>
   <section class="sticky top-12">
     <div
-      class="border border-slate-300 rounded-md p-8 mb-6"
+      class="border border-slate-200 rounded-md p-8 mb-6"
       :class="theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'"
     >
       <div class="mb-8">
@@ -116,13 +116,13 @@ const changeTheme = () => {
     </div>
     <div>
       <button
-        class="inline-block font-sm text-black bg-slate-300 hover:bg-slate-200 focus:bg-slate-200 rounded cursor-pointer select-none py-2 px-5"
+        class="inline-block font-sm text-black bg-slate-200 hover:bg-slate-300 focus:bg-slate-300 rounded cursor-pointer select-none py-2 px-5"
         @click="resetSettings"
       >
         Reset all settings
       </button>
       <button
-        class="inline-block font-sm text-black bg-slate-300 hover:bg-slate-200 focus:bg-slate-200 rounded cursor-pointer select-none py-2 px-5 ml-4"
+        class="inline-block font-sm text-black bg-slate-200 hover:bg-slate-300 focus:bg-slate-300 rounded cursor-pointer select-none py-2 px-5 ml-4"
         @click="changeTheme"
       >
         Change theme: {{ theme }}
@@ -217,13 +217,13 @@ const changeTheme = () => {
   display: block;
 }
 
-.b-contain:hover input[type="checkbox"] ~ .b-input,
+.b-contain:hover input[type="checkbox"]:not([disabled]) ~ .b-input,
 .b-contain input[type="checkbox"]:focus ~ .b-input {
   background: v-bind("settings.checkbox.interaction.backgroundColor");
   border-color: v-bind("settings.checkbox.interaction.borderColor");
 }
 
-.b-contain:hover input[type="radio"] ~ .b-input,
+.b-contain:hover input[type="radio"]:not([disabled]) ~ .b-input,
 .b-contain input[type="radio"]:focus ~ .b-input {
   background: v-bind("settings.radio.interaction.backgroundColor");
   border-color: v-bind("settings.radio.interaction.borderColor");

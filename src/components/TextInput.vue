@@ -18,7 +18,7 @@ const defaultValue = ref(props.modelValue);
       </div>
       <div>
         <button
-          class="inline-block font-sm text-black bg-slate-300 hover:bg-slate-200 focus:bg-slate-200 rounded cursor-pointer select-none py-[0.2rem] px-3 ml-2"
+          class="inline-block font-sm text-black bg-slate-200 hover:bg-slate-300 focus:bg-slate-300 rounded cursor-pointer select-none py-[0.2rem] px-3 ml-2"
           @click="$emit('update:modelValue', defaultValue)"
         >
           Reset
@@ -26,7 +26,7 @@ const defaultValue = ref(props.modelValue);
       </div>
     </div>
     <input
-      class="w-full block appearance-none bg-white leading-tight rounded focus:outline-none border-2 hover:border-slate-300 focus:border-black px-3 py-2"
+      class="w-full block appearance-none bg-white leading-tight rounded focus:outline-none border-2 border-slate-200 hover:border-slate-300 focus:border-black px-3 py-2"
       type="text"
       :id="id"
       :value="modelValue"
