@@ -12,6 +12,11 @@
         </p>
         <div>
           <a
+            class="inline-block font-medium text-white bg-black rounded cursor-pointer select-none py-2 px-5 shadow-lg shadow-gray-400 focus:shadow-none transition-shadow ease duration-150 mr-4"
+            href="/v1/"
+            >Bun (v1)
+          </a>
+          <a
             class="inline-block font-medium text-white bg-black rounded cursor-pointer select-none py-2 px-5 shadow-lg shadow-gray-400 focus:shadow-none transition-shadow ease duration-150"
             href="https://github.com/the94air/bun"
             target="_blank"
