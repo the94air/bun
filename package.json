@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "lodash.debounce": "^4.0.8",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
     "vue3-colorpicker": "^2.0.4",

@@ -1,6 +1,8 @@
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from "vue";
 
+import debounce from "lodash.debounce";
+
 const props = defineProps({
   id: String,
   modelValue: Number,
@@ -9,7 +11,7 @@ const props = defineProps({
   step: Number,
   tag: String,
 });
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
 
 const defaultValue = ref(props.modelValue);
 const defaultStep = ref(props.step);
@@ -27,6 +29,10 @@ function normalSteps(e) {
     rangeStep.value = defaultStep.value;
   }
 }
+
+const setRangeValue = debounce(function (val) {
+  emit("update:modelValue", val);
+}, 100);
 
 onMounted(() => {
   range.value.addEventListener("keyup", normalSteps);
@@ -75,7 +81,7 @@ onBeforeUnmount(() => {
       :max="max"
       :step="rangeStep"
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="setRangeValue($event.target.value)"
       @keydown.shift="fastSteps()"
     />
   </div>
