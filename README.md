@@ -50,4 +50,3 @@ Bun wouldn't exist without these:
 
 ## License
 [MIT](https://github.com/the94air/bun/blob/master/LICENSE) Copyright © 2019 - present, [Abdalla Arbab](https://abdalla.sd).
-
