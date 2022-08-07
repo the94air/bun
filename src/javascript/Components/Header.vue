@@ -6,15 +6,16 @@
       <h2>A Custom Checkboxes & Radios CSS Generator.</h2>
       <p>Make Checkboxes & Radios With CSS Only Without Images.</p>
       <div>
-        <a href="https://bun.js.org" class="copy-button" target="_blank">
+        <a href="/" class="copy-button">
           Bun (v2)
         </a>
         <a
           href="https://github.com/the94air/bun"
           class="copy-button"
           target="_blank"
-          >GitHub</a
         >
+          GitHub
+        </a>
       </div>
     </div>
   </header>
