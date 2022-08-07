@@ -1,5 +1,5 @@
-let mix = require('laravel-mix');
-let tailwindcss = require('tailwindcss');
+let mix = require("laravel-mix");
+let tailwindcss = require("tailwindcss");
 
 /*
  |--------------------------------------------------------------------------
@@ -12,12 +12,13 @@ let tailwindcss = require('tailwindcss');
  |
  */
 
-mix.setPublicPath('docs')
-    .setResourceRoot('http://fun.test/')
-    .js('src/javascript/app.js', 'docs/javascript')
-    .sass('src/sass/app.scss', 'docs/css')
-    .copyDirectory('src/images', 'docs/images')
-  	.options({
-	    processCssUrls: false,
-	    postCss: [ tailwindcss('./tailwind.js') ],
-	});
+mix
+  .setPublicPath("docs")
+  // .setResourceRoot('http://fun.test/')
+  .js("src/javascript/app.js", "docs/javascript")
+  .sass("src/sass/app.scss", "docs/css")
+  .copyDirectory("src/images", "docs/images")
+  .options({
+    processCssUrls: false,
+    postCss: [tailwindcss("./tailwind.js")],
+  });
